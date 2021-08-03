@@ -1,1 +1,26 @@
-# Cock
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+ vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+ wait(1)
+ vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end)
+function Hi()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-51.1823959, 80.6168747, -536.437805)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(30, Enum.EasingStyle.Linear)
+tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-60.5737877, 53.9498825, 8666.35059)})
+tween:Play() wait(30)
+tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(0, Enum.EasingStyle.Linear)
+tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-55.5486526, -360.063782, 9489.0498)})
+tween:Play() end
+Hi()
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+print "hi"
+wait(3)
+Hi()
+end)
+while wait() do
+wait(300)
+game.Players.LocalPlayer.Character.Head:Destroy() end
